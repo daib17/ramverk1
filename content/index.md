@@ -2,7 +2,7 @@
 title: "Hem"
 ---
 Min me-sida i kursen ramverk1
-=========================
+=============================
 
 [FIGURE src="image/teide.jpg"]
 

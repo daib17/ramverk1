@@ -38,6 +38,11 @@ return [
             "url" => "om",
             "title" => "Om denna webbplats.",
         ],
+        [
+            "text" => "IP-validator",
+            "url" => "ip",
+            "title" => "IP validator.",
+        ],
         // [
         //     "text" => "Styleväljare",
         //     "url" => "style",

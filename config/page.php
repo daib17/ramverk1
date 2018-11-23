@@ -29,8 +29,8 @@ return [
     // These views are always loaded into the collection of views.
     "views" => [
         [
-            "template" => "anax/v2/header/default",
             "region" => "header",
+            "template" => "anax/v2/header/default",
             "sort" => -1,
             "data" => null,
         ],
@@ -42,8 +42,8 @@ return [
             ],
         ],
         [
-            "template" => "anax/v2/footer/default",
             "region" => "footer",
+            "template" => "anax/v2/footer/default",
             "sort" => -1,
             "data" => null,
         ],

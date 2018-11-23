@@ -98,16 +98,41 @@ img {
     margin-bottom: 4em;
 }
 
-.wrap-main h1 {
+.region-main h1 {
     border-bottom: 1px solid #999;
 }
 
-.wrap-main h2 {
+.region-main h2 {
     border-bottom: 1px solid #ccc;
 }
 
 h1 {
     font-size: 2em;
+}
+
+/**
+* IP validator
+*/
+.ipvalidator-form input[type="text"] {
+    width: 80%;
+    font-size: 1.3rem;
+    padding: 0.5rem;
+}
+
+.ipvalidator-form input[type="submit"] {
+    display: block;
+    margin-top: 2rem;
+    font-size: 1rem;
+    padding: 0.5rem;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.code {
+    padding: 0 0.5rem;
+    background-color: #eee;
 }
 
 
