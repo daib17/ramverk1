@@ -43,6 +43,11 @@ return [
             "url" => "ip",
             "title" => "IP validator.",
         ],
+        [
+            "text" => "Geo",
+            "url" => "geo",
+            "title" => "Geo",
+        ],
         // [
         //     "text" => "Styleväljare",
         //     "url" => "style",

@@ -31,7 +31,7 @@ img {
 
 .inner-wrap {
     margin: 0 auto;
-    max-width: 680px;
+    max-width: 960px;
     padding: 0 0.5em;
 }
 
@@ -135,6 +135,12 @@ h1 {
     background-color: #eee;
 }
 
+/**
+* IP Geolocation
+*/
+.error {
+    color: red;
+}
 
 
 /**
