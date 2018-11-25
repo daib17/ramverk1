@@ -10,7 +10,7 @@ use Anax\Commons\ContainerInjectableTrait;
 // use Anax\Route\Exception\InternalErrorException;
 
 /**
- * JSON controller 
+ * JSON controller
  */
 class IPJsonValidatorController implements ContainerInjectableInterface
 {

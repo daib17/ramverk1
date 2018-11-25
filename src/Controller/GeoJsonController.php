@@ -7,7 +7,6 @@ use Anax\Commons\ContainerInjectableTrait;
 
 use Anax\Model\IPStackAPI;
 
-
 // use Anax\Route\Exception\ForbiddenException;
 // use Anax\Route\Exception\NotFoundException;
 // use Anax\Route\Exception\InternalErrorException;
@@ -33,11 +32,11 @@ class GeoJsonController implements ContainerInjectableInterface
         $page = $this->di->get("page");
         $locateBtn = $this->di->get("request")->getGet("locateBtn");
         $ipJson = $this->di->get("request")->getGet("ip");
-        $ip = "";
+        $ipadd = "";
 
         // Client's IP as default for input field
         if (!$ipJson) {
-            $ip = $ipJson =  $this->di->get("request")->getServer('REMOTE_ADDR');
+            $ipadd = $ipJson =  $this->di->get("request")->getServer('REMOTE_ADDR');
         }
 
         $path = "index";
@@ -62,7 +61,7 @@ class GeoJsonController implements ContainerInjectableInterface
         }
 
         $page->add("anax/geolocation/$path", [
-            "ip" => $ip,
+            "ip" => $ipadd,
             "ipJson" => $ipJson,
             "json" => $json,
             "msg" => $msg,

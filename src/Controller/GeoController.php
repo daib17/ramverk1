@@ -33,29 +33,29 @@ class GeoController implements ContainerInjectableInterface
         $title = "Geolocation";
         $page = $this->di->get("page");
         $locateBtn = $this->di->get("request")->getPost("locateBtn");
-        $ip = $this->di->get("request")->getPost("ip");
+        $ipadd = $this->di->get("request")->getPost("ip");
         $ipJson = "";
 
         // Client's IP as default for input field
-        if (!$ip) {
-            $ip = $ipJson =  $this->di->get("request")->getServer('REMOTE_ADDR');
+        if (!$ipadd) {
+            $ipadd = $ipJson =  $this->di->get("request")->getServer('REMOTE_ADDR');
         }
 
         $route = "index";
         $res = $msg = $msgJson = "";
-        
+
         if ($locateBtn) {
-            $api = new IPStackAPI($ip);
-            if ($api->isValid($ip)) {
+            $api = new IPStackAPI($ipadd);
+            if ($api->isValid($ipadd)) {
                 $route = "result";
                 $res = $api->request();
             } else {
-                $msg = $ip . " is not a valid IP address";
+                $msg = $ipadd . " is not a valid IP address";
             }
         }
 
         $page->add("anax/geolocation/$route", [
-            "ip" => $ip,
+            "ip" => $ipadd,
             "ipJson" => $ipJson,
             "res" => $res,
             "msg" => $msg,
