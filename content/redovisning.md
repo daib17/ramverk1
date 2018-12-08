@@ -87,3 +87,23 @@ I checked the documentation for both Laravel and Symfony frameworks. It is hard 
 **Vilken är din TIL för detta kmom?**
 
 It's been especially interesting to read about some of the most popular frameworks in PHP and how they compare.  
+
+Kmom03
+-------------------------
+
+**Hur känns det att jobba med begreppen kring $di?**
+
+
+**Ge din egna korta förklaring, ett kort stycke, om dependency injection, service locator och lazy loading. Berätta gärna vilka källor du använde för att lära dig om begreppen.**
+
+
+**Berätta hur andra ramverk (minst 1) använder sig av koncept som liknar $di. Liknar det “vårt” sätt?**
+
+
+**Berätta lite om hur du löste uppgiften, till exempel vilka klasser du gjorde, om du gjorde refaktoring på äldre klasser och vad du valde att lägga i $di.**
+
+
+**Har du någon reflektion kring hur det är att jobba med externa tjänster (ipvalidering, kartor, väder)?**
+
+
+**Vilken är din TIL för detta kmom?**

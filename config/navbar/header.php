@@ -48,6 +48,11 @@ return [
             "url" => "geo",
             "title" => "Geo",
         ],
+        [
+            "text" => "Forecast",
+            "url" => "forecast",
+            "title" => "Forecast",
+        ],
         // [
         //     "text" => "Styleväljare",
         //     "url" => "style",
