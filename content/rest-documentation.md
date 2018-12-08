@@ -4,7 +4,7 @@ title: "REST API Documentation"
 REST API
 =========================
 
-This documentation introduces the different REST API available on this website.   
+This is the documentation for the REST API available on this website.   
 
 IP validator
 -------------------------

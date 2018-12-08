@@ -1,7 +1,5 @@
 <?php
-
 namespace Anax\View;
-
 
 /**
 * Style chooser.
@@ -13,7 +11,7 @@ namespace Anax\View;
 ?>
 <h1>Weather Forecast - Past 30 days</h1>
 
-<?php foreach($res as $day): ?>
+<?php foreach ($res as $day) : ?>
     <div class="forecast-day">
         <p><b><?= date("l M d", $day["daily"]["data"][0]["time"]); ?></b></p>
         <p><?= $day["daily"]["data"][0]["summary"] ?></p>

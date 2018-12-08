@@ -46,6 +46,7 @@ class GeoController implements ContainerInjectableInterface
 
         if ($locateBtn) {
             $api = new IPStackAPI($ipadd);
+            $api->setDI($this->di);
             if ($api->isValid($ipadd)) {
                 $route = "result";
                 $res = $api->request();

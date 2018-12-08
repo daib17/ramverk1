@@ -62,10 +62,14 @@ class ForecastController implements ContainerInjectableInterface
                 }
             } else if ($ipadd) {
                 $ipstackApi = new IPStackAPI($ipadd);
+                $ipstackApi->setDI($this->di);
                 if ($ipstackApi->isValid($ipadd)) {
                     $res = $ipstackApi->request();
-                    $forecastApi = new ForecastAPI($curl, $res["latitude"],
-                        $res["longitude"]);
+                    $forecastApi = new ForecastAPI(
+                        $curl,
+                        $res["latitude"],
+                        $res["longitude"]
+                    );
                     $forecastApi->setDI($this->di);
                     $res = $forecastApi->request($period);
                     $route = $period == 0 ? "result" : "result-past";

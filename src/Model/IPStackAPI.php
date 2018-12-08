@@ -2,17 +2,18 @@
 
 namespace Anax\Model;
 
-class IPStackAPI
+use Anax\Commons\ContainerInjectableInterface;
+use Anax\Commons\ContainerInjectableTrait;
+
+class IPStackAPI implements ContainerInjectableInterface
 {
-    /**
-    * Constant - IPStackAPI free access key.
-    */
-    const KEY = '03a38350318f8afa3cc5dcd5ee6bd323';
+    use ContainerInjectableTrait;
 
     /**
     * @var string  $ip IP address to locate.
     */
     private $ipadd;
+
 
     /**
     * Constructor
@@ -22,13 +23,19 @@ class IPStackAPI
         $this->ipadd = $ipadd;
     }
 
+
     /**
     * Make API request with instance variable 'ipadd' and access key.
     */
     public function request()
     {
+        // Get API key from configuration file
+        $cfg = $this->di->get("configuration");
+        $config = $cfg->load("apikeys.php");
+        $apikey = $config["config"]["ipstack"];
+
         // Initialize curl
-        $curl = curl_init('http://api.ipstack.com/'.$this->ipadd.'?access_key='.self::KEY.'');
+        $curl = curl_init('http://api.ipstack.com/' . $this->ipadd . '?access_key='. $apikey . '');
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 
         // Store the data
@@ -40,6 +47,7 @@ class IPStackAPI
 
         return $res;
     }
+
 
     /**
     * Validate IP

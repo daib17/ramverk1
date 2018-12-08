@@ -1,7 +1,5 @@
 <?php
-
 namespace Anax\View;
-
 
 /**
 * Style chooser.
@@ -21,7 +19,7 @@ namespace Anax\View;
     <p>Humidity: <?= $res["currently"]["humidity"] * 100 ?>%</p>
 </div>
 
-<?php foreach($res["daily"]["data"] as $day): ?>
+<?php foreach ($res["daily"]["data"] as $day) : ?>
     <div class="forecast-day">
         <p><b><?= date("l M d", $day["time"]); ?></b></p>
         <p><?= $day["summary"] ?></p>

@@ -55,7 +55,7 @@ class MyCurl implements ContainerInjectableInterface
         $index = null;
         do {
             curl_multi_exec($mh, $index);
-        } while($index > 0);
+        } while ($index > 0);
 
         // Get content and remove handles
         foreach ($multiCurl as $k => $ch) {

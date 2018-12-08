@@ -9,11 +9,6 @@ class ForecastAPI implements ContainerInjectableInterface
 {
     use ContainerInjectableTrait;
 
-    // /**
-    // * Constant - Dark Sky free access key.
-    // */
-    // const KEY = '705b58d9ae70c6daa603f5b55b75da59';
-
     /**
     * @var string  $curl custom cURL
     * @var string  $lat latitude
@@ -25,6 +20,7 @@ class ForecastAPI implements ContainerInjectableInterface
     private $curl;
     private $apikey;
 
+
     /**
     * Constructor
     */
@@ -35,6 +31,7 @@ class ForecastAPI implements ContainerInjectableInterface
         $this->lon = $lon;
     }
 
+
     /**
     * Make API request for the given period.
     *
@@ -42,23 +39,17 @@ class ForecastAPI implements ContainerInjectableInterface
     */
     public function request($period)
     {
-        // Get API access key from configuration file
-        $cfg = $this->di->get("configuration");
-        $config = $cfg->load("apikeys.php");
-        $this->apikey = $config["config"]["darksky"];
-
         if ($period == 0) {
             // This week
             $res = $this->curl->request('https://api.darksky.net/forecast/' .
-            $this->apikey . '/' . $this->lat . ',' . $this->lon . '?units=si');
+            $this->getApiKey() . '/' . $this->lat . ',' . $this->lon . '?units=si');
         } else {
             // Last 30 days
-            $res = $this->multi(3);
+            $res = $this->multi(30);
         }
 
         return $res;
     }
-
 
 
     /**
@@ -70,16 +61,11 @@ class ForecastAPI implements ContainerInjectableInterface
     */
     public function multi($numDays)
     {
-        // Get API access key from configuration file
-        $cfg = $this->di->get("configuration");
-        $config = $cfg->load("apikeys.php");
-        $this->apikey = $config["config"]["darksky"];
-
         $urlArr = [];
         for ($i = 1; $i < $numDays + 1; $i++) {
             $time = date(strtotime("-" . $i . " days", time()));
             $urlArr[] = 'https://api.darksky.net/forecast/' .
-                $this->apikey . '/' . $this->lat . ',' . $this->lon . ',' . $time . '?units=auto';
+                $this->getApiKey() . '/' . $this->lat . ',' . $this->lon . ',' . $time . '?units=auto';
         }
 
         return $this->curl->multi($urlArr);
@@ -95,5 +81,16 @@ class ForecastAPI implements ContainerInjectableInterface
     {
         return $this->lat >= -90 && $this->lat <= 90 &&
             $this->lon >= -180 && $this->lon <= 180;
+    }
+
+
+    /**
+    * Get API access key from configuration file.
+    */
+    public function getApiKey()
+    {
+        $cfg = $this->di->get("configuration");
+        $config = $cfg->load("apikeys.php");
+        return $config["config"]["darksky"];
     }
 }

@@ -44,6 +44,7 @@ class GeoJsonController implements ContainerInjectableInterface
 
         if ($locateBtn) {
             $api = new IPStackAPI($ipJson);
+            $api->setDI($this->di);
             if ($api->isValid($ipJson)) {
                 $path ="result-json";
                 $res = $api->request();
