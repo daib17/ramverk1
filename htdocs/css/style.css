@@ -1,18 +1,23 @@
 /**
- * General setup for layout.
- */
+* General setup for layout.
+*/
 @import url('https://fonts.googleapis.com/css?family=Roboto+Mono');
 
 html {
     overflow-y: scroll;
     background-color: #424242;
-    font-family: 'Roboto Mono', monospace;
 }
 
 body {
     margin: 0;
     background-color: #fff;
     word-wrap: break-word;
+    font-family: 'Roboto Mono', monospace;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Roboto Mono', monospace;
+    font-weight: bold;
 }
 
 img {
@@ -37,8 +42,8 @@ img {
 
 
 /**
- * Header
- */
+* Header
+*/
 .outer-wrap-header {
     max-width: 100%;
     min-height: 1em;
@@ -67,32 +72,37 @@ img {
 
 
 /**
- * Navbar
- */
- .outer-wrap-navbar {
-     max-width: 100%;
-     min-height: 1em;
-     background-color: #43a047;
-     color: #fff;
-     padding: 1em 0;
- }
+* Navbar
+*/
+.outer-wrap-navbar {
+    max-width: 100%;
+    min-height: 1em;
+    background-color: #43a047;
+    color: #fff;
+    padding: 1em 0;
+}
 
- .outer-wrap-navbar a {
-     color: #fff;
-     text-decoration: none;
-     padding-right: 2rem;
-     font-size: 1.2rem;
- }
+.outer-wrap-navbar a {
+    color: #fff;
+    text-decoration: none;
+    padding-right: 2rem;
+    font-size: 1.2rem;
+}
 
- .outer-wrap-navbar a:hover {
-     color: #ddd;
- }
+.outer-wrap-navbar a:hover {
+    color: #ddd;
+}
+
+.rm-navbar li {
+    font-family: 'Roboto Mono', monospace;
+    background-color: #43a047;
+}
 
 
 
 /**
- * Main
- */
+* Main
+*/
 .outer-wrap-main {
     min-height: 40em;
     margin-bottom: 4em;
@@ -172,8 +182,8 @@ h1 {
 
 
 /**
- * Footer
- */
+* Footer
+*/
 .outer-wrap-footer {
     max-width: 100%;
     min-height: 6em;
@@ -186,8 +196,8 @@ h1 {
 
 
 /**
- * Responsive
- */
+* Responsive
+*/
 @media screen and (max-width: 970px) {
     .header-logo {
         display: none;

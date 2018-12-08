@@ -12,12 +12,12 @@ return [
         [
             "text" => "Hem",
             "url" => "",
-            "title" => "Första sidan, börja här.",
+            "title" => "Första sidan, börja här",
         ],
         [
             "text" => "Redovisning",
             "url" => "redovisning",
-            "title" => "Redovisningstexter från kursmomenten.",
+            "title" => "Redovisningstexter från kursmomenten",
             // "submenu" => [
             //     "items" => [
             //         [
@@ -36,12 +36,12 @@ return [
         [
             "text" => "Om",
             "url" => "om",
-            "title" => "Om denna webbplats.",
+            "title" => "Om denna webbplats",
         ],
         [
-            "text" => "IP-validator",
+            "text" => "IP-val",
             "url" => "ip",
-            "title" => "IP validator.",
+            "title" => "IP validator",
         ],
         [
             "text" => "Geo",
@@ -52,6 +52,25 @@ return [
             "text" => "Forecast",
             "url" => "forecast",
             "title" => "Forecast",
+            "submenu" => [
+                "items" => [
+                    [
+                        "text" => "Standard output",
+                        "url" => "forecast",
+                        "title" => "Request weather forecast.",
+                    ],
+                    [
+                        "text" => "JSON output",
+                        "url" => "json/forecast",
+                        "title" => "Request weather forecast (JSON).",
+                    ],
+                ],
+            ],
+        ],
+        [
+            "text" => "REST API",
+            "url" => "rest-documentation",
+            "title" => "API Documentation",
         ],
         // [
         //     "text" => "Styleväljare",

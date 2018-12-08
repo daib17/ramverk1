@@ -33,10 +33,11 @@ namespace Anax\View;
 
 <br>
 Lat: <?= $res["latitude"] ?> /
-Lon: <?= $res["longitude"] ?><br>
+Lon: <?= $res["longitude"] ?> /
+Timezone: <?= $res["timezone"] ?><br>
 <div id="map" style="height:300px"></div>
 
-<form class="ipvalidator-form" method="POST" action="<?= url("forecast") ?>">
+<form class="forecast-form" method="POST" action="<?= url("forecast") ?>">
     <input type="submit" name="back" value="Back">
 </form>
 

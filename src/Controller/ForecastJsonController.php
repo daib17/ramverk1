@@ -13,11 +13,11 @@ use Anax\Model\ForecastAPI;
 // use Anax\Route\Exception\InternalErrorException;
 
 /**
-* Forecast controller
+* Forecast Json controller
 *
 * @SuppressWarnings(PHPMD.TooManyPublicMethods)
 */
-class ForecastController implements ContainerInjectableInterface
+class ForecastJsonController implements ContainerInjectableInterface
 {
     use ContainerInjectableTrait;
 
@@ -47,7 +47,7 @@ class ForecastController implements ContainerInjectableInterface
             $ipadd = $this->di->get("request")->getServer('REMOTE_ADDR');
         }
 
-        $route = "index";
+        $route = "index-json";
         $res = $msg = "";
 
         if ($submitBtn) {
@@ -56,7 +56,7 @@ class ForecastController implements ContainerInjectableInterface
                 $forecastApi->setDI($this->di);
                 if ($forecastApi->isValid()) {
                     $res = $forecastApi->request($period);
-                    $route = $period == 0 ? "result" : "result-past";
+                    $route = "result-json";
                 } else {
                     $msg = "Latitude and/or longitude are not valid";
                 }
@@ -68,7 +68,7 @@ class ForecastController implements ContainerInjectableInterface
                         $res["longitude"]);
                     $forecastApi->setDI($this->di);
                     $res = $forecastApi->request($period);
-                    $route = $period == 0 ? "result" : "result-past";
+                    $route = "result-json";
                 } else {
                     $msg = $ipadd . " is not a valid IP address";
                 }

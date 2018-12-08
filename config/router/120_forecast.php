@@ -5,14 +5,14 @@
 return [
     "routes" => [
         [
-            "info" => "Forecast.",
+            "info" => "Wheater Forecast",
             "mount" => "forecast",
             "handler" => "\Anax\Controller\ForecastController",
         ],
-        // [
-        //     "info" => "Geolocation REST API.",
-        //     "mount" => "json/geo",
-        //     "handler" => "\Anax\Controller\GeoJsonController",
-        // ],
+        [
+            "info" => "Wheater Forecast (JSON)",
+            "mount" => "json/forecast",
+            "handler" => "\Anax\Controller\ForecastJsonController",
+        ],
     ]
 ];

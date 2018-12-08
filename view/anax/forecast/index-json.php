@@ -10,8 +10,8 @@ namespace Anax\View;
 //echo showEnvironment(get_defined_vars(), get_defined_functions());
 
 ?>
-<h1>Weather Forecast</h1>
-<form class="forecast-form" method="POST" action="<?= url("forecast") ?>">
+<h1>Weather Forecast (JSON)</h1>
+<form class="forecast-form" method="POST" action="<?= url("json/forecast") ?>">
     <h3>Enter Latitude/Longitud OR IP address</h3>
     <label>Latitude</label><br>
     <input type="text" name="lat" value="<?= $lat ?>"><br><br>

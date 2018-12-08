@@ -2,21 +2,28 @@
 
 namespace Anax\Model;
 
-class ForecastAPI
+use Anax\Commons\ContainerInjectableInterface;
+use Anax\Commons\ContainerInjectableTrait;
+
+class ForecastAPI implements ContainerInjectableInterface
 {
-    /**
-    * Constant - Dark Sky free access key.
-    */
-    const KEY = '705b58d9ae70c6daa603f5b55b75da59';
+    use ContainerInjectableTrait;
+
+    // /**
+    // * Constant - Dark Sky free access key.
+    // */
+    // const KEY = '705b58d9ae70c6daa603f5b55b75da59';
 
     /**
     * @var string  $curl custom cURL
     * @var string  $lat latitude
     * @var string  $lon longitude
+    * @var string  $apikey api access key
     */
     private $lat;
     private $lon;
     private $curl;
+    private $apikey;
 
     /**
     * Constructor
@@ -35,10 +42,15 @@ class ForecastAPI
     */
     public function request($period)
     {
+        // Get API access key from configuration file
+        $cfg = $this->di->get("configuration");
+        $config = $cfg->load("apikeys.php");
+        $this->apikey = $config["config"]["darksky"];
+
         if ($period == 0) {
             // This week
             $res = $this->curl->request('https://api.darksky.net/forecast/' .
-            self::KEY . '/' . $this->lat . ',' . $this->lon . '?units=auto');
+            $this->apikey . '/' . $this->lat . ',' . $this->lon . '?units=si');
         } else {
             // Last 30 days
             $res = $this->multi(3);
@@ -58,11 +70,16 @@ class ForecastAPI
     */
     public function multi($numDays)
     {
+        // Get API access key from configuration file
+        $cfg = $this->di->get("configuration");
+        $config = $cfg->load("apikeys.php");
+        $this->apikey = $config["config"]["darksky"];
+
         $urlArr = [];
         for ($i = 1; $i < $numDays + 1; $i++) {
             $time = date(strtotime("-" . $i . " days", time()));
             $urlArr[] = 'https://api.darksky.net/forecast/' .
-                self::KEY . '/' . $this->lat . ',' . $this->lon . ',' . $time . '?units=auto';
+                $this->apikey . '/' . $this->lat . ',' . $this->lon . ',' . $time . '?units=auto';
         }
 
         return $this->curl->multi($urlArr);

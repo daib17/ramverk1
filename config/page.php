@@ -18,6 +18,7 @@ return [
             "htmlClass" => null,
             "lang" => "sv",
             "stylesheets" => [
+                "css/dbwebb-se.min.css",
                 "css/style.css",
             ],
             // "javascripts" => [
@@ -36,7 +37,7 @@ return [
         ],
         [
             "region" => "navbar",
-            "template" => "anax/v2/navbar/default",
+            "template" => "anax/v2/navbar/navbar_submenus",
             "data" => [
                 "navbarConfig" => require __DIR__ . "/navbar/header.php",
             ],
