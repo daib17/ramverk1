@@ -16,7 +16,7 @@ return [
         ],
         [
             "text" => "Redovisning",
-            "url" => "redovisning",
+            "url" => "redovisning/kmom01",
             "title" => "Redovisningstexter från kursmomenten",
             "submenu" => [
                 "items" => [
