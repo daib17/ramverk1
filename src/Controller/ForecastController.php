@@ -60,7 +60,7 @@ class ForecastController implements ContainerInjectableInterface
                 } else {
                     $msg = "Latitude and/or longitude are not valid";
                 }
-            } else if ($ipadd) {
+            } else {
                 $ipstackApi = new IPStackAPI($ipadd);
                 $ipstackApi->setDI($this->di);
                 if ($ipstackApi->isValid($ipadd)) {

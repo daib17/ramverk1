@@ -43,27 +43,27 @@ class MyCurl implements ContainerInjectableInterface
     {
         $multiCurl = [];
         $result = [];
-        $mh = curl_multi_init();    // multiple handle
+        $mhandle = curl_multi_init();    // multiple handle
         foreach ($urlArr as $i => $url) {
             $multiCurl[$i] = curl_init();
             curl_setopt($multiCurl[$i], CURLOPT_URL, $url);
             curl_setopt($multiCurl[$i], CURLOPT_HEADER, 0);
             curl_setopt($multiCurl[$i], CURLOPT_RETURNTRANSFER, 1);
-            curl_multi_add_handle($mh, $multiCurl[$i]);
+            curl_multi_add_handle($mhandle, $multiCurl[$i]);
         }
 
         $index = null;
         do {
-            curl_multi_exec($mh, $index);
+            curl_multi_exec($mhandle, $index);
         } while ($index > 0);
 
         // Get content and remove handles
         foreach ($multiCurl as $k => $ch) {
             $result[$k] = json_decode(curl_multi_getcontent($ch), true);
-            curl_multi_remove_handle($mh, $ch);
+            curl_multi_remove_handle($mhandle, $ch);
         }
         // close
-        curl_multi_close($mh);
+        curl_multi_close($mhandle);
 
         return $result;
     }

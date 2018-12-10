@@ -13,12 +13,10 @@ class ForecastAPI implements ContainerInjectableInterface
     * @var string  $curl custom cURL
     * @var string  $lat latitude
     * @var string  $lon longitude
-    * @var string  $apikey api access key
     */
     private $lat;
     private $lon;
     private $curl;
-    private $apikey;
 
 
     /**
