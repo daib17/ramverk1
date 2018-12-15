@@ -7,12 +7,12 @@ return [
         [
             "info" => "Geolocation.",
             "mount" => "geo",
-            "handler" => "\Anax\Controller\GeoController",
+            "handler" => "\daib17\Controller\GeoController",
         ],
         [
             "info" => "Geolocation REST API.",
             "mount" => "json/geo",
-            "handler" => "\Anax\Controller\GeoJsonController",
+            "handler" => "\daib17\Controller\GeoJsonController",
         ],
     ]
 ];

@@ -1,6 +1,6 @@
 <?php
 
-namespace Anax\Controller;
+namespace daib17\Controller;
 
 use Anax\Commons\ContainerInjectableInterface;
 use Anax\Commons\ContainerInjectableTrait;

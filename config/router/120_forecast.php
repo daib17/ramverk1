@@ -7,12 +7,12 @@ return [
         [
             "info" => "Wheater Forecast",
             "mount" => "forecast",
-            "handler" => "\Anax\Controller\ForecastController",
+            "handler" => "\daib17\Controller\ForecastController",
         ],
         [
             "info" => "Wheater Forecast (JSON)",
             "mount" => "json/forecast",
-            "handler" => "\Anax\Controller\ForecastJsonController",
+            "handler" => "\daib17\Controller\ForecastJsonController",
         ],
     ]
 ];

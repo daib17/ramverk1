@@ -1,12 +1,12 @@
 <?php
 
-namespace Anax\Controller;
+namespace daib17\Controller;
 
 use Anax\Commons\ContainerInjectableInterface;
 use Anax\Commons\ContainerInjectableTrait;
 
-use Anax\Model\IPStackAPI;
-use Anax\Model\ForecastAPI;
+use daib17\Model\IPStackAPI;
+use daib17\Model\ForecastAPI;
 
 // use Anax\Route\Exception\ForbiddenException;
 // use Anax\Route\Exception\NotFoundException;

@@ -10,7 +10,7 @@ return [
             "shared" => true,
             //"callback" => "\Anax\Response\Response",
             "callback" => function () {
-                $obj = new \Anax\Model\MyCurl();
+                $obj = new \daib17\Model\MyCurl();
                 $obj->setDI($this);
                 return $obj;
             }

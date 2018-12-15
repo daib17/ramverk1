@@ -7,12 +7,12 @@ return [
         [
             "info" => "IP validator.",
             "mount" => "ip",
-            "handler" => "\Anax\Controller\IPValidatorController",
+            "handler" => "\daib17\Controller\IPValidatorController",
         ],
         [
             "info" => "IP/JSON validator.",
             "mount" => "api/json",
-            "handler" => "\Anax\Controller\IPJsonValidatorController",
+            "handler" => "\daib17\Controller\IPJsonValidatorController",
         ],
     ]
 ];

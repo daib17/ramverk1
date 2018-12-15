@@ -1,26 +1,44 @@
 <?php
 
-namespace Anax\Controller;
+namespace daib17\Controller;
 
 use Anax\DI\DIFactoryConfig;
 use PHPUnit\Framework\TestCase;
 
 /**
- * Test the ForecastController.
- */
+* Test the ForecastController.
+*/
 class ForecastControllerTest extends TestCase
 {
     /**
-     * Test the route "index" with valid IP
-     */
+    * @var Anax\DI\DIFactoryConfig              $di
+    * @var daib17\Controller\ForecastController $controller
+    */
+    private $di;
+    private $controller;
+
+
+
+    /**
+    * Setup before each testcase
+    */
+    public function setUp()
+    {
+        $this->di = new DIFactoryConfig();
+        $this->di->loadServices(ANAX_INSTALL_PATH . "/config/di");
+        $this->controller = new ForecastController();
+        $this->controller->setDI($this->di);
+    }
+
+
+
+    /**
+    * Test the route "index" with valid IP
+    */
     public function testIndexAction()
     {
-        // Setup di
-        $di = new DIFactoryConfig();
-        $di->loadServices(ANAX_INSTALL_PATH . "/config/di");
-
         // Set global IP address and run test
-        $di->get("request")->setGlobals([
+        $this->di->get("request")->setGlobals([
             'post' => [
                 'submitBtn' => "Submit",
                 'ip' => "172.217.168.164",
@@ -28,11 +46,7 @@ class ForecastControllerTest extends TestCase
             ]
         ]);
 
-        // Setup the controller
-        $controller = new ForecastController();
-        $controller->setDI($di);
-
-        $res = $controller->indexAction();
+        $res = $this->controller->indexAction();
         $body = $res->getBody();
         $exp = "<title>Forecast | ramverk1</title>";
         $this->assertContains($exp, $body);
@@ -40,16 +54,12 @@ class ForecastControllerTest extends TestCase
 
 
     /**
-     * Test the route "index" with valid IP (past 30 days)
-     */
+    * Test the route "index" with valid IP (past 30 days)
+    */
     public function testIndexAction30Days()
     {
-        // Setup di
-        $di = new DIFactoryConfig();
-        $di->loadServices(ANAX_INSTALL_PATH . "/config/di");
-
         // Set global IP address and run test
-        $di->get("request")->setGlobals([
+        $this->di->get("request")->setGlobals([
             'post' => [
                 'submitBtn' => "Submit",
                 'ip' => "172.217.168.164",
@@ -57,11 +67,7 @@ class ForecastControllerTest extends TestCase
             ]
         ]);
 
-        // Setup the controller
-        $controller = new ForecastController();
-        $controller->setDI($di);
-
-        $res = $controller->indexAction();
+        $res = $this->controller->indexAction();
         $body = $res->getBody();
         $exp = "<title>Forecast | ramverk1</title>";
         $this->assertContains($exp, $body);
@@ -70,27 +76,19 @@ class ForecastControllerTest extends TestCase
 
 
     /**
-     * Test the route "index" with no IP
-     */
+    * Test the route "index" with no IP
+    */
     public function testIndexActionNoIP()
     {
-        // Setup di
-        $di = new DIFactoryConfig();
-        $di->loadServices(ANAX_INSTALL_PATH . "/config/di");
-
         // Set global IP address and run test
-        $di->get("request")->setGlobals([
+        $this->di->get("request")->setGlobals([
             'post' => [
                 'submitBtn' => "Submit",
                 'period' => 0
             ]
         ]);
 
-        // Setup the controller
-        $controller = new ForecastController();
-        $controller->setDI($di);
-
-        $res = $controller->indexAction();
+        $res = $this->controller->indexAction();
         $body = $res->getBody();
         $exp = "<title>Forecast | ramverk1</title>";
         $this->assertContains($exp, $body);
@@ -98,16 +96,12 @@ class ForecastControllerTest extends TestCase
 
 
     /**
-     * Test the route "index" with bad IP
-     */
+    * Test the route "index" with bad IP
+    */
     public function testIndexActionBadIP()
     {
-        // Setup di
-        $di = new DIFactoryConfig();
-        $di->loadServices(ANAX_INSTALL_PATH . "/config/di");
-
         // Set global IP address and run test
-        $di->get("request")->setGlobals([
+        $this->di->get("request")->setGlobals([
             'post' => [
                 'submitBtn' => "Submit",
                 'ip' => "172.217.168",
@@ -115,11 +109,7 @@ class ForecastControllerTest extends TestCase
             ]
         ]);
 
-        // Setup the controller
-        $controller = new ForecastController();
-        $controller->setDI($di);
-
-        $res = $controller->indexAction();
+        $res = $this->controller->indexAction();
         $body = $res->getBody();
         $exp = "<title>Forecast | ramverk1</title>";
         $this->assertContains($exp, $body);
@@ -128,16 +118,12 @@ class ForecastControllerTest extends TestCase
 
 
     /**
-     * Test the route "index" with no latitude and longitude
-     */
+    * Test the route "index" with no latitude and longitude
+    */
     public function testIndexActionLatLon()
     {
-        // Setup di
-        $di = new DIFactoryConfig();
-        $di->loadServices(ANAX_INSTALL_PATH . "/config/di");
-
         // Set global IP address and run test
-        $di->get("request")->setGlobals([
+        $this->di->get("request")->setGlobals([
             'post' => [
                 'submitBtn' => "Submit",
                 'lat' => '28.05',
@@ -146,11 +132,7 @@ class ForecastControllerTest extends TestCase
             ]
         ]);
 
-        // Setup the controller
-        $controller = new ForecastController();
-        $controller->setDI($di);
-
-        $res = $controller->indexAction();
+        $res = $this->controller->indexAction();
         $body = $res->getBody();
         $exp = "<title>Forecast | ramverk1</title>";
         $this->assertContains($exp, $body);
