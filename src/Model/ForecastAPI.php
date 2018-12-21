@@ -63,7 +63,7 @@ class ForecastAPI implements ContainerInjectableInterface
         for ($i = 1; $i < $numDays + 1; $i++) {
             $time = date(strtotime("-" . $i . " days", time()));
             $urlArr[] = 'https://api.darksky.net/forecast/' .
-                $this->getApiKey() . '/' . $this->lat . ',' . $this->lon . ',' . $time . '?units=auto';
+            $this->getApiKey() . '/' . $this->lat . ',' . $this->lon . ',' . $time . '?units=auto';
         }
 
         return $this->curl->multi($urlArr);
@@ -78,7 +78,7 @@ class ForecastAPI implements ContainerInjectableInterface
     public function isValid()
     {
         return $this->lat >= -90 && $this->lat <= 90 &&
-            $this->lon >= -180 && $this->lon <= 180;
+        $this->lon >= -180 && $this->lon <= 180;
     }
 
 
