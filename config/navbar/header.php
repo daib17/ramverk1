@@ -54,7 +54,7 @@ return [
             "title" => "Om denna webbplats",
         ],
         [
-            "text" => "IP-val",
+            "text" => "IP",
             "url" => "ip",
             "title" => "IP validator",
         ],
@@ -83,9 +83,14 @@ return [
             ],
         ],
         [
-            "text" => "REST API",
+            "text" => "REST",
             "url" => "rest-documentation",
             "title" => "API Documentation",
+        ],
+        [
+            "text" => "Book",
+            "url" => "book",
+            "title" => "Book",
         ],
         // [
         //     "text" => "Styleväljare",
